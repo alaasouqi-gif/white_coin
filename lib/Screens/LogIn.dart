@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:white_coin/constant.dart';
+import 'package:white_coin/Widget/MyButton.dart';
 
 class LogIn extends StatefulWidget {
   @override
@@ -6,12 +8,16 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  String pass;
+  String email;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
           body: Padding(
-        padding: const EdgeInsets.only(top: 32,bottom: 16,left: 16,right: 16),
+        padding:
+            const EdgeInsets.only(top: 32, bottom: 16, left: 16, right: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,7 +36,7 @@ class _LogInState extends State<LogIn> {
                 Text(
                   'Sign in to continue!',
                   style: TextStyle(
-                    color: Color(0xffB4BAC0),
+                    color: KSecondColor,
                     fontSize: 22,
                     fontWeight: FontWeight.w500,
                   ),
@@ -39,17 +45,54 @@ class _LogInState extends State<LogIn> {
             ),
             Column(
               children: [
-                TextField(),
-                TextField(),
-                Text(
-                  'Forgot Password?',),
-                TextButton(onPressed: () {}, child: Text('Login'))
+                TextFormField(
+                  onChanged: (value) {
+                    email = value;
+                  },
+                  textInputAction: TextInputAction.next,
+                  decoration: KDecoration.copyWith(labelText: 'Email'),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                TextFormField(
+                  obscureText: false,
+                  onChanged: (value) {
+                    pass = value;
+                  },
+                  decoration: KDecoration.copyWith(labelText: 'Password'),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: GestureDetector(
+                    onTap: (){
+
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                MyButton(
+                  text: 'Login',
+                  onTap: () {},
+                )
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(' I\'m a new user,'),
+                Text(
+                  ' I\'m a new user,',
+                  style: TextStyle(fontSize: 16),
+                ),
                 TextButton(onPressed: () {}, child: Text('Sign up'))
               ],
             )
