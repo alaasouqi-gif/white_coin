@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:white_coin/constant.dart';
 import 'package:white_coin/Widget/MyButton.dart';
 
-class LogIn extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _LogInState createState() => _LogInState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _LogInState extends State<LogIn> {
-  String pass;
+class _SignUpState extends State<SignUp> {
   String email;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          resizeToAvoidBottomInset: true,
           body: Padding(
             padding: EdgeInsets.only(top: 32, bottom: 16, left: 16, right: 16),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -44,7 +43,18 @@ class _LogInState extends State<LogIn> {
                   ],
                 ),
                 Column(
+
                   children: [
+                    TextFormField(
+                      onChanged: (value) {
+                        email = value;
+                      },
+                      textInputAction: TextInputAction.next,
+                      decoration: KDecoration.copyWith(labelText: 'Full Name'),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
                     TextFormField(
                       onChanged: (value) {
                         email = value;
@@ -56,48 +66,19 @@ class _LogInState extends State<LogIn> {
                       height: 16,
                     ),
                     TextFormField(
-                      obscureText: false,
                       onChanged: (value) {
-                        pass = value;
+                        email = value;
                       },
+                      textInputAction: TextInputAction.next,
                       decoration: KDecoration.copyWith(labelText: 'Password'),
                     ),
-                    SizedBox(
-                      height: 6,
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    MyButton(
-                      text: 'Login',
-                      onTap: () {},
-                    )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      ' I\'m a new user,',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, IdSignUp);
-                        },
-                        child: Text('Sign up'))
-                  ],
+                MyButton(
+                  text: 'Login',
+                  onTap: () {},
                 )
+
               ],
             ),
           )),
