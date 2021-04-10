@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "996005474206",
+    "project_id": "white-coin-74a70",
+    "storage_bucket": "white-coin-74a70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996005474206:android:0a31c3f4f15040a6a6308f",
+        "android_client_info": {
+          "package_name": "com.example.white_coin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996005474206-cphe6vv6pibun3qaqu5o9s3el9shghi5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.white_coin",
+            "certificate_hash": "a3cfdc7acfa6d1b517158e34d022b4b16b032f01"
+          }
+        },
+        {
+          "client_id": "996005474206-vkhuc38bvd1jbojuucnq8tmr8iem75v8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClXVj52ABlVp-eanGbBm-IG7GbCAu42vY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996005474206-vkhuc38bvd1jbojuucnq8tmr8iem75v8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
