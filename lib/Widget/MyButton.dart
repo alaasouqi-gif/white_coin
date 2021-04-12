@@ -4,8 +4,10 @@ class MyButton extends StatelessWidget {
 
   final Function onTap;
   final String text;
+  final width;
 
-  MyButton({@required this.onTap, this.text}) ;
+
+  MyButton({@required this.onTap, this.text, this.width=double.infinity});
 
 
   @override
@@ -13,7 +15,7 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: double.infinity,
+        width: width,
         height: 58,
         foregroundDecoration: BoxDecoration(
             borderRadius: BorderRadius.all(

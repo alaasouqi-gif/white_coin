@@ -43,5 +43,3 @@ String isName(String name){
   }
   return message;
 }
-
-

@@ -23,93 +23,98 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: ScrollViewWithHeight(
-            child: Padding(
-        padding: EdgeInsets.only(top: 32, bottom: 16, left: 16, right: 16),
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              WelcomeMessage(
-                text1: 'Welcome,',
-                text2: 'Sign in to continue!',
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    height: 32,
-                  ),
-                  TextFormField(
-                    onChanged: (value) {
-                      setState(() {
-                        signIn.errorEmailMessage = null;
-                      });
-                      email = value;
-                    },
-                    textInputAction: TextInputAction.next,
-                    decoration: KDecoration.copyWith(
-                      labelText: 'Email',
-                      errorText: signIn.errorEmailMessage,
+        body: ScrollViewWithHeight(
+          child: Padding(
+            padding: EdgeInsets.only(top: 32, bottom: 16, left: 16, right: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                WelcomeMessage(
+                  text1: 'Welcome,',
+                  text2: 'Sign in to continue!',
+                ),
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 32,
                     ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    obscureText: true,
-                    onChanged: (value) {
-                      setState(() {
-                        signIn.errorPassMessage =null;
-                      });
-                      pass = value;
-                    },
-                    decoration: KDecoration.copyWith(
-                        labelText: 'Password',
-                        errorText: signIn.errorPassMessage),
-                  ),
-                  SizedBox(
-                    height: 6,
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                    TextFormField(
+                      onChanged: (value) {
+                        setState(() {
+                          signIn.errorEmailMessage = null;
+                        });
+                        email = value;
+                      },
+                      textInputAction: TextInputAction.next,
+                      decoration: KDecoration.copyWith(
+                        labelText: 'Email',
+                        errorText: signIn.errorEmailMessage,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  MyButton(
-                    text: 'Login',
-                    onTap: () async {
-                      if (await signIn.signIn(email, pass)) {print('m');}
-                      setState(() {});
-                    },
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    ' I\'m a new user,',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, IdSignUp);
+                    SizedBox(
+                      height: 16,
+                    ),
+                    TextFormField(
+                      obscureText: true,
+                      onChanged: (value) {
+                        setState(() {
+                          signIn.errorPassMessage = null;
+                        });
+                        pass = value;
                       },
-                      child: Text('Sign up'))
-                ],
-              )
-            ],
+                      decoration: KDecoration.copyWith(
+                          labelText: 'Password',
+                          errorText: signIn.errorPassMessage),
+                    ),
+                    SizedBox(
+                      height: 6,
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, IdForgetPassword);
+                        },
+                        child: Text(
+                          'Forgot Password?',
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    MyButton(
+                      text: 'Login',
+                      onTap: () async {
+                        if (await signIn.signIn(email, pass)) {
+                          print('m');
+                        }
+                        setState(() {});
+                      },
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      ' I\'m a new user,',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, IdSignUp);
+                        },
+                        child: Text('Sign up'))
+                  ],
+                ),
+              ],
+            ),
+          ),
         ),
       ),
-          )),
     );
   }
 }

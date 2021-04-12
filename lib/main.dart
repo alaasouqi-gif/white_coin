@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:white_coin/Screens/ForgetPasswordEmailSent.dart';
 import 'package:white_coin/Screens/LogIn.dart';
 import 'package:white_coin/Screens/SignUp.dart';
+import 'package:white_coin/Screens/ForgetPassword.dart';
 import 'constant.dart';
 
 void main() async {
@@ -19,6 +21,9 @@ class MyApp extends StatelessWidget {
       routes: {
         IdSignIn:(context)=> LogIn(),
         IdSignUp:(context)=> SignUp(),
+        IdForgetPassword:(context)=>ForgetPassword(),
+        IdForgetPasswordEmailSent:(context)=>ForgetPasswordEmailSent(),
+
       },
     );
   }

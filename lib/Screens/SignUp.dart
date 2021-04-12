@@ -116,7 +116,6 @@ class _SignUpState extends State<SignUp> {
                 text: 'Sign Up',
                 onTap: () async {
                   if(await a.createAccount(email, pass, name, phone)){
-
                   }
                   setState(() {
 
