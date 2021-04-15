@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 
 const Color KSecondColor = Color(0xffB4BAC0);
 
-const String IdSignIn='login';
-const String IdSignUp='signup';
-const String IdForgetPassword='forgetPassword';
-const String IdForgetPasswordEmailSent='forgetPasswordEmailSent';
-
 
 const KDecoration = InputDecoration(
 

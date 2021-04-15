@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:white_coin/constant.dart';
+import 'package:white_coin/resources/constant.dart';
 
 class WelcomeMessage extends StatelessWidget {
 

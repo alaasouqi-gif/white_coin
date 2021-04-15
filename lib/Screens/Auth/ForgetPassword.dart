@@ -1,10 +1,10 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:white_coin/Widget/scrollview.dart';
 import 'package:white_coin/Widget/MyButton.dart';
-import '../constant.dart';
+import 'package:white_coin/resources/constant.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:white_coin/resources/ScreenId.dart';
 
 class ForgetPassword extends StatefulWidget {
   @override
@@ -16,10 +16,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   FirebaseAuth auth = FirebaseAuth.instance;
   String messageError;
 
-
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         body: ScrollViewWithHeight(
@@ -40,9 +38,11 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 16,),
+                      SizedBox(
+                        height: 16,
+                      ),
                       Text(
-                        'Enter You\'r email and we will send an email with Instructions to change you\'r Password.',
+                        'Enter Your email and we will send an email with Instructions to change Your Password.',
                         style: TextStyle(
                           color: KSecondColor,
                           fontSize: 19,
@@ -66,34 +66,27 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   ),
                   MyButton(
                     onTap: () async {
-
-                      if (email==null||email=='') {
-                        messageError = 'Enter You\'r Email';
-                      }else if(!EmailValidator.validate(email)){
+                      if (email == null || email == '') {
+                        messageError = 'Enter Your Email';
+                      } else if (!EmailValidator.validate(email)) {
                         messageError = 'Invalid email';
-                      }
-
-                      else {
+                      } else {
                         try {
                           await auth.sendPasswordResetEmail(email: email);
                           FocusScope.of(context).requestFocus(FocusNode());
                           Navigator.pop(context);
-                          Navigator.pushNamed(context, IdForgetPasswordEmailSent);
+                          Navigator.pushNamed(
+                              context, IdForgetPasswordEmailSent);
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
                             messageError = 'No user found for that email';
                           } else if (e.code == 'too-many-requests') {
                             messageError =
-                            'many time of trying please try again later';
+                                'many time of trying please try again later';
                           }
                         }
                       }
-                        setState(() {
-
-                        });
-
-
-
+                      setState(() {});
                     },
                     text: 'Send Instructions ',
                   )

@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:white_coin/constant.dart';
+import 'package:white_coin/resources/constant.dart';
 import 'package:white_coin/Widget/MyButton.dart';
 import 'package:open_mail_app/open_mail_app.dart';
 
-class ForgetPasswordEmailSent extends StatefulWidget {
-  @override
-  _ForgetPasswordEmailSentState createState() =>
-      _ForgetPasswordEmailSentState();
-}
-
-
-
-class _ForgetPasswordEmailSentState extends State<ForgetPasswordEmailSent> {
-
+class ForgetPasswordEmailSent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,7 +20,7 @@ class _ForgetPasswordEmailSentState extends State<ForgetPasswordEmailSent> {
                 height: 180,
               ),
               Text(
-                'Check you\'r email',
+                'Check your email',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 32,
@@ -40,7 +31,7 @@ class _ForgetPasswordEmailSentState extends State<ForgetPasswordEmailSent> {
                 height: 16,
               ),
               Text(
-                'We have sent password recover instructions to you\'r email.',
+                'We have sent password recover instructions to your email.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: KSecondColor,

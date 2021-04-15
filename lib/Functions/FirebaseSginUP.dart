@@ -14,18 +14,20 @@ class FirebaseSignUp {
   String errorPassMessage;
   String errorPhoneMessage;
   String errorNameMessage;
+  String errorLastNameMessage;
 
 
 
-  Future<bool> createAccount(String email, String password,String name,String phone) async {
+  Future<bool> createAccount(String email, String password,String name,String lastName,String phone) async {
 
     try{
       errorEmailMessage=isEmail(email);
       errorPassMessage=weakPassword(password);
       errorPhoneMessage=isPhone(phone);
       errorNameMessage=isName(name);
+      errorLastNameMessage=isName(lastName);
 
-      if((errorEmailMessage!=null|| errorPassMessage!=null|| errorPhoneMessage!=null ||errorNameMessage!=null)){
+      if((errorEmailMessage!=null|| errorPassMessage!=null|| errorPhoneMessage!=null ||errorNameMessage!=null||errorLastNameMessage!=null)){
         return false;
       }
 
@@ -36,7 +38,8 @@ class FirebaseSignUp {
       
       data.doc(current.uid).collection('personal info').doc('personal').set({
         'email': current.email,
-        'name':name,
+        'first name':name,
+        'last name':lastName,
         'phone':phone,
         'money':5000,
       });

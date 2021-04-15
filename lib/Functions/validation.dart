@@ -4,7 +4,7 @@ import 'package:email_validator/email_validator.dart';
 String isEmail(String email){
   String message;
   if(email==''){
-    message='Please Write you\'r Email';
+    message='Please Write your Email';
 
   }
   else if(!EmailValidator.validate(email)){
@@ -23,7 +23,7 @@ String weakPassword(String password){
 String isPhone(String phone){
   String message;
   if(phone==''){
-    message='Please Write you\'r phone number';
+    message='Please Write your phone number';
   }
   else if(!phone.isPhone()){
     message='Invalid phone number';
@@ -35,10 +35,10 @@ String isName(String name){
   String message;
 
   if(name==''){
-    message='Please Write you\'r Name';
+    message='Please Write your Name';
 
   }else if(!name.isAlphabet()){
-    message='Invalid Name';
+    message='The name must have just letters';
 
   }
   return message;
